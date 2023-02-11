@@ -10,4 +10,13 @@ import "normalize.css/normalize.css"
 // 全局css
 import "@/styles/index.scss"
 
-createApp(App).use(router).use(ElementPlus).use(createPinia()).mount("#app")
+// 引入icon插件
+import initSvgIcon from "@/icons/index"
+import "virtual:svg-icons-register"
+
+createApp(App)
+  .use(router)
+  .use(initSvgIcon)
+  .use(ElementPlus)
+  .use(createPinia())
+  .mount("#app")
