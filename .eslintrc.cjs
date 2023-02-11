@@ -31,6 +31,7 @@ module.exports = {
         endOfLine: "auto"
       }
     ],
-    "vue/no-multiple-template-root": "off"
+    "vue/no-multiple-template-root": "off",
+    "vue/multi-word-component-names": "off"
   }
 }
