@@ -14,9 +14,12 @@ import "@/styles/index.scss"
 import initSvgIcon from "@/icons/index"
 import "virtual:svg-icons-register"
 
+// 安装element-plus插件
+import installElementPlus from "@/plugins/element"
+
 createApp(App)
   .use(router)
   .use(initSvgIcon)
-  .use(ElementPlus)
+  .use(installElementPlus)
   .use(createPinia())
   .mount("#app")
