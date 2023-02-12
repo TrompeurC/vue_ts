@@ -1,5 +1,6 @@
 import { ElMessage, ElMessageBox, ElNotification } from "element-plus"
 import { App } from "vue"
+import * as ElementPlusIconsVue from "@element-plus/icons-vue"
 
 // 默认自动导入组件插件，只会解析在模板中使用的组件，所以这里需要导入样式
 // 这里的样式也可以做到按需导入
@@ -14,6 +15,10 @@ export default {
     app.config.globalProperties.$confirm = ElMessageBox.confirm
     app.config.globalProperties.$alert = ElMessageBox.alert
     app.config.globalProperties.$prompt = ElMessageBox.prompt
+
+    for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+      app.component(key, component)
+    }
   }
 }
 

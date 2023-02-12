@@ -2,6 +2,7 @@
   <div>
     <svg-icon icon-class="bug"></svg-icon>
     <el-button @click="sayHi">按钮</el-button>
+    <input type="text" />
   </div>
 </template>
 

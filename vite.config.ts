@@ -28,7 +28,7 @@ export default defineConfig({
       dirs: ["src/components", "src/layout/components"], // 后面布局组件也有相关的组件期望自动导入
       dts: "src/components.d.ts",
       resolvers: [ElementPlusResolver()] // 生成的组件的类型放到这里
-    }),
+    })
   ],
   resolve: {
     alias: {
