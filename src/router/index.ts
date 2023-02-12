@@ -18,7 +18,8 @@ const asyncRoutes: RouteRecordRaw[] = [
         meta: {
           title: "Documentation",
           icon: "documentation",
-          hidden: true
+          // hidden: true,
+          activeMenu: "/documentation/index"
         }
       }
     ]
@@ -46,7 +47,8 @@ const asyncRoutes: RouteRecordRaw[] = [
     redirect: "/system/user",
     meta: {
       title: "System",
-      icon: "lock"
+      icon: "lock",
+      alwaysShow: true
       // hidden: true
     },
     children: [
@@ -56,8 +58,8 @@ const asyncRoutes: RouteRecordRaw[] = [
           import(/* webpackChunkName: "menu" */ "@/views/system/menu.vue"),
         meta: {
           title: "Menu ",
-          icon: "list",
-          hidden: true
+          icon: "list"
+          // hidden: true
         }
       },
       {

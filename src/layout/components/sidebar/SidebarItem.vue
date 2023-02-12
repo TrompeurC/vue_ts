@@ -8,22 +8,24 @@
           theOnlyOneChildRoute.noShowingChildren)
       "
     >
-      <sidebar-item-link
-        :to="resolvePath(theOnlyOneChildRoute.path)"
-        v-if="theOnlyOneChildRoute.meta"
-      >
-        <!-- 如果没有meta属性意味着不必渲染了 -->
-        <el-menu-item
+      <template v-if="!alwaysShowRootMenu && theOnlyOneChildRoute">
+        <sidebar-item-link
+          :to="resolvePath(theOnlyOneChildRoute.path)"
           v-if="theOnlyOneChildRoute.meta"
-          :index="resolvePath(theOnlyOneChildRoute.path)"
         >
-          <el-icon v-if="icon">
-            <svg-icon class="menu-icon" :icon-class="icon"></svg-icon>
-          </el-icon>
-          <template #title>
-            <span>{{ theOnlyOneChildRoute.meta?.title }}</span>
-          </template>
-        </el-menu-item></sidebar-item-link
+          <!-- 如果没有meta属性意味着不必渲染了 -->
+          <el-menu-item
+            v-if="theOnlyOneChildRoute.meta"
+            :index="resolvePath(theOnlyOneChildRoute.path)"
+          >
+            <el-icon v-if="icon">
+              <svg-icon class="menu-icon" :icon-class="icon"></svg-icon>
+            </el-icon>
+            <template #title>
+              <span>{{ theOnlyOneChildRoute.meta?.title }}</span>
+            </template>
+          </el-menu-item></sidebar-item-link
+        ></template
       >
     </template>
     <el-sub-menu v-else :index="resolvePath(item.path)" popper-append-to-body>
@@ -53,6 +55,9 @@ import { isExternal } from "@/utils/validate"
 
 const props = defineProps<{ item: RouteRecordRaw; basePath: string }>()
 
+const alwaysShowRootMenu = computed(
+  () => props.item.meta && props.item.meta.alwaysShow
+)
 const showingChildNumber = computed(() => {
   const children = (props.item.children || []).filter((route) => {
     // hidden路由排除掉 只算可渲染子路由

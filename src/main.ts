@@ -1,7 +1,6 @@
 import { createApp } from "vue"
 import App from "./App.vue"
 import router from "./router"
-import { createPinia } from "pinia"
 // import ElementPlus from "element-plus"
 import "element-plus/dist/index.css"
 // 初始化css，重置css默认样式
@@ -15,10 +14,11 @@ import "virtual:svg-icons-register"
 
 // 安装element-plus插件
 import installElementPlus from "@/plugins/element"
+import pinia from "./store"
 
 createApp(App)
   .use(router)
   .use(initSvgIcon)
   .use(installElementPlus)
-  .use(createPinia())
+  .use(pinia)
   .mount("#app")

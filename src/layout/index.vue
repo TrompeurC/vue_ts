@@ -5,7 +5,7 @@
     </div>
     <div class="main-container">
       <div class="header">
-        <div class="navbar">navbar</div>
+        <navbar></navbar>
         <div class="tags-view">tags-view</div>
       </div>
       <div class="app-main">
@@ -20,6 +20,7 @@
 <script setup lang="ts">
 import siderbar from "./components/sidebar/index.vue"
 import Appmain from "./components/app-main/index.vue"
+import Navbar from "@/components/navbar/index.vue"
 </script>
 
 <style scoped lang="scss">
